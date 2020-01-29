@@ -1,0 +1,14 @@
+<ng-content></ng-content>
+<div [ngClass]="{'blockCenter': true}">
+    <div  [ngClass]="{'blockText': true}">
+        <p [ngClass]="{'badWordsTitle': true}"> {{ title }} </p>
+        <p [ngClass]="{'badWords': true}"> {{ myBadWords}} </p>
+    </div>
+        <input type="text" name="inputField" [ngClass]="{'inputField': true}" [style.border]="empty ? '' : '2px solid red'" [(ngModel)]="inputField" [placeholder]="placeholderInputField ? 'word here...' : 'Please write a word' ">
+        <input type="button" name="addButton" [ngClass]="{'addButton': true}" (click)="addBadWords(inputField)"  value='Add'>
+
+        <input type="button" class="resetButton" (click)="resetFields()" value='Reset'>
+
+        <textarea name="inputFieldCenzor" [(ngModel)]="cenzorInput"  cols="85" rows="5" [ngClass]="{'cenzorInput': true}" [(ngModel)]="inputFieldCenzor" [style.border]="emptyCenzor ? '' : '2px solid red'"[placeholder]="placeholderInputFieldCenzor ? 'text here..' : 'Please write a word'"> {{ cenzorArray }} </textarea>
+        <input type="button" name="cenzor"  [ngClass]="{'cenzor': true}" (click)="getCenzorWords(inputFieldCenzor)" value='Cenzor'>
+</div>
